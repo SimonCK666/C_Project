@@ -5,7 +5,8 @@
 * @created 2020-05-08T19:53:36.477Z+08:00
 * @copyright 
 * https://blog.csdn.net/hpf247/article/details/75716059
-* @last-modified 2020-05-09T10:19:53.210Z+08:00
+* https://github.com/SimonCK666/C_Project/tree/master/StudentSystem
+* @last-modified 2020-05-09T10:47:26.081Z+08:00
 */
 
 #include <stdio.h>
