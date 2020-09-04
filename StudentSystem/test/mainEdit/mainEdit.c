@@ -85,12 +85,12 @@ void Student_Insert() {
     while ( 1 )
     {
         /* code */
-        printf("Please input ID: ");
-        scanf("%s", &students[num].ID);
-        getchar();
-        printf("Please input Name: ");
-        scanf("%s", &students[num].Name);
-        getchar();
+        // printf("Please input ID: ");
+        // scanf("%s", &students[num].ID);
+        // getchar();
+        // printf("Please input Name: ");
+        // scanf("%s", &students[num].Name);
+        // getchar();
         printf("Please input C mark: ");
         scanf("%f", &students[num].C_Mark);
         getchar();
@@ -342,7 +342,11 @@ void IO_WriteInfo() {
     fclose(fp);
 }
 
+void Quit() {
+    exit(0);
+}
 
+void function_list();
 
 /************ 主程序 ***********/
 void main() {
@@ -350,48 +354,50 @@ void main() {
     
     IO_ReadInfo();           // 读取文件
     
-    while ( 1 )
-    {
-        /* Main Meau */
-        printf("\n----- Student Management System -----\n");
-        printf("1. Insert Student Information\n");
-        printf("2. Modify Student Information\n");
-        printf("3. Delete Student Information\n");
-        printf("4. Select Student Information By Name\n");
-        printf("5. Sort Students By C Marks\n");
-        printf("Please choose (1 ~ 6): ");
+    function_list();
 
-        scanf("%d", &choice);
-        getchar();
+    // return 0;
+}
 
-        switch ( choice )
-        {
-        case 1:
-            /* code */
-            Student_Insert();
-            break;
-        case 2:
-            Student_Modify();
-            break;
-        case 3:
-            Student_Delete();
-            break;
-        case 4:
-            Student_Select();
-            break;
-        case 5:
-            Student_SortByAverage(students);
-            Student_Display();
-            break;
-        case 6:
-            exit(0);
-            break;
-    
+
+void function_list() {
+    int i;
+    do {
+
+        printf("\t\t|###############################################|\n");
+        printf("\t\t|                                               |\n");
+        printf("\t\t|    Welcome to Use Grade management System     |\n");
+        printf("\t\t|                                               |\n");
+        printf("\t\t|   Please Select The Following Functions:      |\n");
+        printf("\t\t|                                               |\n");
+        printf("\t\t|   $$ 1 -Import grades for a course            |\n");
+        printf("\t\t|   $$ 2 -Delete a course                       |\n");
+        printf("\t\t|   $$ 3 -Calculate GPA                         |\n");
+        printf("\t\t|   $$ 4 -Export file with GPA                  |\n");
+        printf("\t\t|   $$ 5 -Quit                                  |\n");
+        printf("\t\t|                                               |\n");
+        printf("\t\t|###############################################|\n");
+
+        printf("\n\n\n\n");
+
+        printf("Please Input Number:");
+        scanf("%d", &i);
+
+        switch (i) {
+
+            case 1: Student_Insert(); break;
+            case 2: Student_Modify(); break;
+            case 3: Student_Delete(); break;
+            case 4: Student_Select(); break;
+            case 5: 
+                    Student_SortByAverage(students);
+                    Student_Display();
+                    break;
+            case 6: Quit(); break;
+            default: printf("Number should between 1 -- 5!\n");
         }
 
         IO_WriteInfo();
-    
-    }
 
-    // return 0;
+    } while (1);
 }
